@@ -1021,17 +1021,18 @@ p {
 }
 
 .footer-partner-logos img {
-    height: 60px;
+    height: 70px;
     width: auto;
-    max-width: 120px;
+    max-width: 140px;
     object-fit: contain;
-    filter: brightness(0) invert(1);
-    opacity: 0.85;
-    transition: opacity var(--transition-fast);
+    background: var(--white);
+    padding: 10px;
+    border-radius: 8px;
+    transition: transform var(--transition-fast);
 }
 
 .footer-partner-logos img:hover {
-    opacity: 1;
+    transform: scale(1.05);
 }
 
 .footer-bottom {
