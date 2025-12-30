@@ -1,7 +1,7 @@
-/**
- * St. Mary's University College Juba
- * Main JavaScript File
- */
+/* ============================================
+   ST. MARY'S UNIVERSITY COLLEGE JUBA
+   Main JavaScript File
+   ============================================ */
 
 document.addEventListener('DOMContentLoaded', function() {
     
@@ -19,13 +19,13 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     window.addEventListener('scroll', handleScroll);
-    handleScroll(); // Check on load
+    handleScroll(); // Check on page load
     
     // ============================================
     // Mobile Menu Toggle
     // ============================================
-    const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
-    const navLinks = document.querySelector('.nav-links');
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const navLinks = document.getElementById('navLinks');
     
     if (mobileMenuBtn && navLinks) {
         mobileMenuBtn.addEventListener('click', function() {
@@ -37,7 +37,7 @@ document.addEventListener('DOMContentLoaded', function() {
             if (mobileMenuBtn.classList.contains('active')) {
                 spans[0].style.transform = 'rotate(45deg) translate(5px, 5px)';
                 spans[1].style.opacity = '0';
-                spans[2].style.transform = 'rotate(-45deg) translate(5px, -5px)';
+                spans[2].style.transform = 'rotate(-45deg) translate(7px, -6px)';
             } else {
                 spans[0].style.transform = 'none';
                 spans[1].style.opacity = '1';
@@ -46,7 +46,8 @@ document.addEventListener('DOMContentLoaded', function() {
         });
         
         // Close menu when clicking a link
-        navLinks.querySelectorAll('a').forEach(link => {
+        const navLinkItems = navLinks.querySelectorAll('a');
+        navLinkItems.forEach(link => {
             link.addEventListener('click', function() {
                 navLinks.classList.remove('active');
                 mobileMenuBtn.classList.remove('active');
@@ -80,7 +81,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
     
     // ============================================
-    // Contact Form Handling
+    // Contact Form Validation
     // ============================================
     const contactForm = document.getElementById('contactForm');
     
@@ -88,29 +89,28 @@ document.addEventListener('DOMContentLoaded', function() {
         contactForm.addEventListener('submit', function(e) {
             e.preventDefault();
             
-            // Get form data
-            const formData = new FormData(contactForm);
-            const data = {};
-            formData.forEach((value, key) => {
-                data[key] = value;
-            });
+            // Get form values
+            const firstName = document.getElementById('firstName').value.trim();
+            const lastName = document.getElementById('lastName').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const subject = document.getElementById('subject').value;
+            const message = document.getElementById('message').value.trim();
             
-            // Simple validation
-            if (!data.firstName || !data.lastName || !data.email || !data.subject || !data.message) {
+            // Basic validation
+            if (!firstName || !lastName || !email || !subject || !message) {
                 showNotification('Please fill in all required fields.', 'error');
                 return;
             }
             
             // Email validation
             const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            if (!emailRegex.test(data.email)) {
+            if (!emailRegex.test(email)) {
                 showNotification('Please enter a valid email address.', 'error');
                 return;
             }
             
-            // Since this is a static site, we'll show a success message
-            // In production, this would submit to a backend or email service
-            showNotification('Thank you for your message! We will get back to you soon.', 'success');
+            // Simulate form submission (in production, this would send to a server)
+            showNotification('Thank you for your message! We will respond within 2-3 business days.', 'success');
             contactForm.reset();
         });
     }
@@ -118,14 +118,14 @@ document.addEventListener('DOMContentLoaded', function() {
     // ============================================
     // Notification System
     // ============================================
-    function showNotification(message, type = 'info') {
-        // Remove existing notification
+    function showNotification(message, type) {
+        // Remove existing notifications
         const existing = document.querySelector('.notification');
         if (existing) {
             existing.remove();
         }
         
-        // Create notification
+        // Create notification element
         const notification = document.createElement('div');
         notification.className = `notification notification-${type}`;
         notification.innerHTML = `
@@ -139,43 +139,38 @@ document.addEventListener('DOMContentLoaded', function() {
             top: 100px;
             right: 20px;
             padding: 1rem 1.5rem;
-            background: ${type === 'success' ? '#28a745' : type === 'error' ? '#dc3545' : '#17a2b8'};
+            background: ${type === 'success' ? '#2856A3' : '#dc3545'};
             color: white;
-            border-radius: 4px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+            z-index: 10000;
             display: flex;
             align-items: center;
             gap: 1rem;
-            z-index: 10000;
             animation: slideIn 0.3s ease;
             max-width: 400px;
         `;
         
-        // Add animation
+        // Add animation keyframes
         const style = document.createElement('style');
         style.textContent = `
             @keyframes slideIn {
-                from {
-                    transform: translateX(100%);
-                    opacity: 0;
-                }
-                to {
-                    transform: translateX(0);
-                    opacity: 1;
-                }
+                from { transform: translateX(100%); opacity: 0; }
+                to { transform: translateX(0); opacity: 1; }
+            }
+            @keyframes slideOut {
+                from { transform: translateX(0); opacity: 1; }
+                to { transform: translateX(100%); opacity: 0; }
             }
         `;
         document.head.appendChild(style);
         
+        // Add to page
         document.body.appendChild(notification);
         
-        // Close button
-        notification.querySelector('.notification-close').addEventListener('click', () => {
-            notification.remove();
-        });
-        
-        // Style close button
-        notification.querySelector('.notification-close').style.cssText = `
+        // Close button functionality
+        const closeBtn = notification.querySelector('.notification-close');
+        closeBtn.style.cssText = `
             background: none;
             border: none;
             color: white;
@@ -185,10 +180,16 @@ document.addEventListener('DOMContentLoaded', function() {
             line-height: 1;
         `;
         
-        // Auto remove after 5 seconds
+        closeBtn.addEventListener('click', () => {
+            notification.style.animation = 'slideOut 0.3s ease forwards';
+            setTimeout(() => notification.remove(), 300);
+        });
+        
+        // Auto-remove after 5 seconds
         setTimeout(() => {
             if (notification.parentNode) {
-                notification.remove();
+                notification.style.animation = 'slideOut 0.3s ease forwards';
+                setTimeout(() => notification.remove(), 300);
             }
         }, 5000);
     }
@@ -197,28 +198,28 @@ document.addEventListener('DOMContentLoaded', function() {
     // Scroll Reveal Animation
     // ============================================
     const observerOptions = {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.1
     };
     
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('revealed');
-                observer.unobserve(entry.target);
             }
         });
     }, observerOptions);
     
-    // Observe elements for reveal animation
-    document.querySelectorAll('.info-card, .program-card, .stat-card, .content-grid > *').forEach(el => {
+    // Observe elements that should animate on scroll
+    document.querySelectorAll('.program-card, .info-card, .stat-card, .value-item').forEach(el => {
         el.style.opacity = '0';
-        el.style.transform = 'translateY(30px)';
+        el.style.transform = 'translateY(20px)';
         el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
         observer.observe(el);
     });
     
-    // Add CSS for revealed state
+    // Add revealed class styles
     const revealStyle = document.createElement('style');
     revealStyle.textContent = `
         .revealed {
@@ -229,12 +230,11 @@ document.addEventListener('DOMContentLoaded', function() {
     document.head.appendChild(revealStyle);
     
     // ============================================
-    // Current Year for Copyright
+    // Current Year in Footer
     // ============================================
-    const yearElements = document.querySelectorAll('.current-year');
-    const currentYear = new Date().getFullYear();
-    yearElements.forEach(el => {
-        el.textContent = currentYear;
-    });
+    const yearSpan = document.getElementById('currentYear');
+    if (yearSpan) {
+        yearSpan.textContent = new Date().getFullYear();
+    }
     
 });

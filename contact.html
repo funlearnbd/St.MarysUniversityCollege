@@ -3,8 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Contact St. Mary's University College Juba - Get in touch with our admissions office, faculty, and administration.">
     <title>Contact Us | St. Mary's University College Juba</title>
-    <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,400;0,700;0,900;1,400&family=Source+Sans+Pro:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700;900&family=Source+Sans+Pro:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -12,23 +16,21 @@
     <header class="header" id="header">
         <div class="container">
             <a href="index.html" class="logo">
-                <div class="logo-emblem">
-                    <span class="cross">✝</span>
-                </div>
+                <img src="logo.jpeg" alt="St. Mary's College Logo" class="logo-img">
                 <div class="logo-text">
-                    <span class="logo-name">St. Mary's</span>
-                    <span class="logo-subtitle">University College</span>
+                    <span class="logo-name">St. Mary's University College</span>
+                    <span class="logo-subtitle">Juba, South Sudan</span>
                 </div>
             </a>
-            <nav class="nav">
-                <ul class="nav-links">
+            <nav>
+                <ul class="nav-links" id="navLinks">
                     <li><a href="index.html">Home</a></li>
-                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="about.html">About</a></li>
                     <li><a href="academics.html">Academics</a></li>
                     <li><a href="admissions.html">Admissions</a></li>
                     <li><a href="contact.html" class="active">Contact</a></li>
                 </ul>
-                <button class="mobile-menu-btn" aria-label="Toggle menu">
+                <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle menu">
                     <span></span>
                     <span></span>
                     <span></span>
@@ -46,170 +48,113 @@
                 <span>Contact</span>
             </div>
             <h1>Contact Us</h1>
-            <p>We'd love to hear from you. Get in touch with St. Mary's University College</p>
+            <p>We're here to help. Reach out with any questions about admissions, programs, or campus life.</p>
         </div>
     </section>
 
-    <!-- Contact Information -->
+    <!-- Contact Info Section -->
     <section class="content-section">
         <div class="container">
             <div class="content-grid">
-                <div class="content-text">
+                <div>
                     <span class="section-label">Get in Touch</span>
                     <h2>Contact <span class="accent">Information</span></h2>
-                    <p>
-                        Whether you have questions about admissions, academic programs, 
-                        or campus life, our staff is here to help. Reach out to us using 
-                        any of the methods below.
-                    </p>
-                    
-                    <div class="contact-details" style="margin-top: 2rem;">
-                        <div class="contact-item" style="display: flex; align-items: flex-start; gap: 1rem; margin-bottom: 1.5rem;">
-                            <div style="width: 50px; height: 50px; background: var(--maroon); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2" style="width: 24px; height: 24px;">
-                                    <path d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"/>
-                                    <path d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"/>
+                    <div style="margin-top: 2rem;">
+                        <div class="value-item" style="margin-bottom: 1.5rem;">
+                            <div class="value-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="var(--primary-blue)" stroke-width="1.5">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" />
                                 </svg>
                             </div>
-                            <div>
-                                <h4 style="color: var(--charcoal); margin-bottom: 0.25rem;">Campus Address</h4>
-                                <p style="margin: 0;">
-                                    St. Mary's University College Campus<br>
-                                    Juba, Central Equatoria<br>
-                                    South Sudan
-                                </p>
+                            <div class="value-text">
+                                <h4>Campus Address</h4>
+                                <p>Usratuna Campus<br>Juba, Central Equatoria<br>South Sudan</p>
                             </div>
                         </div>
-                        
-                        <div class="contact-item" style="display: flex; align-items: flex-start; gap: 1rem; margin-bottom: 1.5rem;">
-                            <div style="width: 50px; height: 50px; background: var(--maroon); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2" style="width: 24px; height: 24px;">
-                                    <path d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z"/>
+                        <div class="value-item" style="margin-bottom: 1.5rem;">
+                            <div class="value-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="var(--primary-blue)" stroke-width="1.5">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z" />
                                 </svg>
                             </div>
-                            <div>
-                                <h4 style="color: var(--charcoal); margin-bottom: 0.25rem;">Phone</h4>
-                                <p style="margin: 0;">
-                                    <a href="tel:+211912345678" style="color: var(--maroon);">+211 912 345 678</a>
-                                </p>
+                            <div class="value-text">
+                                <h4>Phone</h4>
+                                <p>+211 912 345 678</p>
                             </div>
                         </div>
-                        
-                        <div class="contact-item" style="display: flex; align-items: flex-start; gap: 1rem; margin-bottom: 1.5rem;">
-                            <div style="width: 50px; height: 50px; background: var(--maroon); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2" style="width: 24px; height: 24px;">
-                                    <path d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75"/>
+                        <div class="value-item" style="margin-bottom: 1.5rem;">
+                            <div class="value-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="var(--primary-blue)" stroke-width="1.5">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
                                 </svg>
                             </div>
-                            <div>
-                                <h4 style="color: var(--charcoal); margin-bottom: 0.25rem;">Email</h4>
-                                <p style="margin: 0;">
-                                    <a href="mailto:info@saintmarysucjuba.edu.ss" style="color: var(--maroon);">info@saintmarysucjuba.edu.ss</a>
-                                </p>
+                            <div class="value-text">
+                                <h4>Email</h4>
+                                <p>info@saintmarysucjuba.edu.ss</p>
                             </div>
                         </div>
-                        
-                        <div class="contact-item" style="display: flex; align-items: flex-start; gap: 1rem;">
-                            <div style="width: 50px; height: 50px; background: var(--maroon); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2" style="width: 24px; height: 24px;">
-                                    <path d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                        <div class="value-item">
+                            <div class="value-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="var(--primary-blue)" stroke-width="1.5">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" />
                                 </svg>
                             </div>
-                            <div>
-                                <h4 style="color: var(--charcoal); margin-bottom: 0.25rem;">Office Hours</h4>
-                                <p style="margin: 0;">
-                                    Monday - Friday: 8:00 AM - 5:00 PM<br>
-                                    Saturday: 8:00 AM - 12:00 PM<br>
-                                    Sunday: Closed
-                                </p>
+                            <div class="value-text">
+                                <h4>Office Hours</h4>
+                                <p>Monday - Friday: 8:00 AM - 5:00 PM<br>Saturday: 8:00 AM - 12:00 PM<br>Sunday: Closed</p>
                             </div>
                         </div>
                     </div>
                 </div>
-                
-                <div class="content-image">
-                    <!-- Map placeholder -->
-                    <div style="background: var(--cream); border: 1px solid var(--medium-gray); padding: 2rem; text-align: center; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center;">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="var(--maroon)" stroke-width="1" style="width: 80px; height: 80px; margin-bottom: 1rem; opacity: 0.5;">
-                            <path d="M9 6.75V15m6-6v8.25m.503 3.498l4.875-2.437c.381-.19.622-.58.622-1.006V4.82c0-.836-.88-1.38-1.628-1.006l-3.869 1.934c-.317.159-.69.159-1.006 0L9.503 3.252a1.125 1.125 0 00-1.006 0L3.622 5.689C3.24 5.88 3 6.27 3 6.695V19.18c0 .836.88 1.38 1.628 1.006l3.869-1.934c.317-.159.69-.159 1.006 0l4.994 2.497c.317.158.69.158 1.006 0z"/>
-                        </svg>
-                        <h4 style="color: var(--charcoal); margin-bottom: 0.5rem;">Our Location</h4>
-                        <p style="color: var(--dark-gray); font-size: 0.9rem;">
-                            St. Mary's University College is located in Juba, 
-                            the capital city of South Sudan, on the Usratuna campus.
-                        </p>
+                <div>
+                    <div class="info-card">
+                        <h3>Send Us a Message</h3>
+                        <form id="contactForm" style="margin-top: 1rem;">
+                            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                                <div class="form-group">
+                                    <label for="firstName">First Name *</label>
+                                    <input type="text" id="firstName" name="firstName" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="lastName">Last Name *</label>
+                                    <input type="text" id="lastName" name="lastName" required>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email Address *</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="phone">Phone Number</label>
+                                <input type="tel" id="phone" name="phone">
+                            </div>
+                            <div class="form-group">
+                                <label for="subject">Subject *</label>
+                                <select id="subject" name="subject" required>
+                                    <option value="">Select a subject...</option>
+                                    <option value="admissions">Admissions Inquiry</option>
+                                    <option value="programs">Academic Programs</option>
+                                    <option value="fees">Tuition & Fees</option>
+                                    <option value="visit">Campus Visit</option>
+                                    <option value="general">General Inquiry</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="message">Message *</label>
+                                <textarea id="message" name="message" rows="5" required placeholder="How can we help you?"></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary" style="width: 100%;">Send Message</button>
+                        </form>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Contact Form -->
+    <!-- Administrative Offices -->
     <section class="content-section alt">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-label">Send a Message</span>
-                <h2>Inquiry <span class="accent">Form</span></h2>
-                <p>Have questions? Fill out the form below and we'll get back to you</p>
-            </div>
-            
-            <div style="max-width: 700px; margin: 0 auto;">
-                <form class="contact-form" id="contactForm">
-                    <div class="content-grid" style="gap: 1rem;">
-                        <div class="form-group">
-                            <label for="firstName">First Name *</label>
-                            <input type="text" id="firstName" name="firstName" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="lastName">Last Name *</label>
-                            <input type="text" id="lastName" name="lastName" required>
-                        </div>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="email">Email Address *</label>
-                        <input type="email" id="email" name="email" required>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="phone">Phone Number</label>
-                        <input type="tel" id="phone" name="phone">
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="subject">Subject *</label>
-                        <select id="subject" name="subject" required>
-                            <option value="">Select a subject...</option>
-                            <option value="admissions">Admissions Inquiry</option>
-                            <option value="programs">Academic Programs</option>
-                            <option value="fees">Tuition & Fees</option>
-                            <option value="campus">Campus Visit</option>
-                            <option value="general">General Information</option>
-                            <option value="other">Other</option>
-                        </select>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="message">Your Message *</label>
-                        <textarea id="message" name="message" rows="6" required placeholder="Please provide details about your inquiry..."></textarea>
-                    </div>
-                    
-                    <div style="text-align: center; margin-top: 1.5rem;">
-                        <button type="submit" class="btn btn-primary" style="min-width: 200px;">
-                            Send Message
-                        </button>
-                    </div>
-                </form>
-                
-                <p style="text-align: center; margin-top: 1.5rem; font-size: 0.875rem; color: var(--dark-gray);">
-                    * Required fields. We typically respond within 2-3 business days.
-                </p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Departments -->
-    <section class="content-section">
         <div class="container">
             <div class="section-header">
                 <span class="section-label">Departments</span>
@@ -218,47 +163,62 @@
             <div class="programs-grid">
                 <div class="info-card">
                     <h3>Admissions Office</h3>
-                    <p>
-                        For inquiries about admission requirements, application process, 
-                        and enrollment status.
-                    </p>
-                    <p style="margin-top: 1rem;">
-                        <strong>Email:</strong> info@saintmarysucjuba.edu.ss
-                    </p>
+                    <p>For inquiries about application requirements, deadlines, and admission status.</p>
+                    <p style="margin-top: 1rem; color: var(--primary-blue);"><strong>Email:</strong> admissions@saintmarysucjuba.edu.ss</p>
                 </div>
                 <div class="info-card">
                     <h3>Registrar's Office</h3>
-                    <p>
-                        For academic records, transcripts, course registration, 
-                        and graduation requirements.
-                    </p>
-                    <p style="margin-top: 1rem;">
-                        <strong>Email:</strong> info@saintmarysucjuba.edu.ss
-                    </p>
+                    <p>For academic records, transcripts, enrollment verification, and registration.</p>
+                    <p style="margin-top: 1rem; color: var(--primary-blue);"><strong>Email:</strong> registrar@saintmarysucjuba.edu.ss</p>
                 </div>
                 <div class="info-card">
                     <h3>Finance Office</h3>
-                    <p>
-                        For tuition payments, fees, financial aid information, 
-                        and account inquiries.
-                    </p>
-                    <p style="margin-top: 1rem;">
-                        <strong>Email:</strong> info@saintmarysucjuba.edu.ss
-                    </p>
+                    <p>For tuition payments, fee schedules, financial assistance, and billing inquiries.</p>
+                    <p style="margin-top: 1rem; color: var(--primary-blue);"><strong>Email:</strong> finance@saintmarysucjuba.edu.ss</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Visit Campus -->
-    <section class="cta section">
+    <section class="content-section">
+        <div class="container">
+            <div class="content-grid">
+                <div class="mission-image-placeholder">
+                    <img src="logo.jpeg" alt="St. Mary's College Campus">
+                </div>
+                <div>
+                    <span class="section-label">Visit Us</span>
+                    <h2>Campus <span class="accent">Visits</span></h2>
+                    <p>
+                        We welcome prospective students and their families to visit our campus. 
+                        A campus visit is a wonderful opportunity to:
+                    </p>
+                    <ul class="feature-list">
+                        <li>Tour our facilities and classrooms</li>
+                        <li>Meet with faculty and current students</li>
+                        <li>Learn about our academic programs</li>
+                        <li>Discuss admission requirements</li>
+                        <li>Experience our campus community</li>
+                    </ul>
+                    <p style="margin-top: 1rem;">
+                        To schedule a campus visit, please contact the Admissions Office at least 
+                        one week in advance.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="section cta">
         <div class="container">
             <div class="cta-content">
-                <h2>Visit Our Campus</h2>
-                <p>Experience St. Mary's University College firsthand. Schedule a campus visit to meet our faculty and see our facilities.</p>
+                <h2>Start Your Journey Today</h2>
+                <p>Ready to take the next step? Explore our programs or begin your application.</p>
                 <div class="cta-buttons">
-                    <a href="tel:+211912345678" class="btn btn-primary">Call to Schedule</a>
-                    <a href="academics.html" class="btn btn-secondary">Explore Programs</a>
+                    <a href="admissions.html" class="btn btn-primary">Apply Now</a>
+                    <a href="academics.html" class="btn btn-secondary">View Programs</a>
                 </div>
             </div>
         </div>
@@ -269,32 +229,23 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-brand">
-                    <div class="logo">
-                        <div class="logo-emblem">
-                            <span class="cross">✝</span>
-                        </div>
-                        <div class="logo-text">
-                            <span class="logo-name">St. Mary's</span>
-                            <span class="logo-subtitle">University College</span>
-                        </div>
-                    </div>
-                    <p>
-                        A Catholic institution of higher learning committed to excellence 
-                        in education and service to South Sudan since 2008.
-                    </p>
+                    <a href="index.html" class="logo">
+                        <img src="logo.jpeg" alt="St. Mary's College Logo" class="logo-img">
+                    </a>
+                    <p>St. Mary's University College Juba — Catholic higher education serving South Sudan since 2008.</p>
                 </div>
                 <div class="footer-links">
                     <div class="footer-column">
                         <h4>Quick Links</h4>
                         <ul>
                             <li><a href="about.html">About Us</a></li>
-                            <li><a href="academics.html">Programs</a></li>
+                            <li><a href="academics.html">Academic Programs</a></li>
                             <li><a href="admissions.html">Admissions</a></li>
                             <li><a href="contact.html">Contact</a></li>
                         </ul>
                     </div>
                     <div class="footer-column">
-                        <h4>Faculties</h4>
+                        <h4>Academics</h4>
                         <ul>
                             <li><a href="academics.html">Rehabilitation Sciences</a></li>
                             <li><a href="academics.html">Education</a></li>
@@ -302,18 +253,25 @@
                         </ul>
                     </div>
                     <div class="footer-column">
-                        <h4>Contact Us</h4>
+                        <h4>Contact</h4>
                         <ul class="contact-info">
                             <li>
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"/><path d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"/></svg>
-                                Juba, Central Equatoria<br>South Sudan
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" />
+                                </svg>
+                                Juba, Central Equatoria, South Sudan
                             </li>
                             <li>
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z"/></svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z" />
+                                </svg>
                                 +211 912 345 678
                             </li>
                             <li>
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75"/></svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
+                                </svg>
                                 info@saintmarysucjuba.edu.ss
                             </li>
                         </ul>
@@ -321,8 +279,8 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2025 St. Mary's University College Juba. All Rights Reserved.</p>
-                <p class="affiliation">In partnership with the Archdiocese of Juba & OVCI la Nostra Famiglia</p>
+                <p>&copy; <span id="currentYear"></span> St. Mary's University College Juba. All rights reserved.</p>
+                <p class="affiliation">A ministry of the Roman Catholic Archdiocese of Juba in partnership with OVCI la Nostra Famiglia</p>
             </div>
         </div>
     </footer>
