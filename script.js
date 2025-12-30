@@ -6,6 +6,30 @@
 document.addEventListener('DOMContentLoaded', function() {
     
     // ============================================
+    // Intro Animation Handler
+    // ============================================
+    const introOverlay = document.getElementById('introOverlay');
+    
+    if (introOverlay) {
+        // Total animation duration: 
+        // - Logo pulse: 2s
+        // - Title fade in: starts at 1s
+        // - Subtitle fade in: starts at 1.5s
+        // - Wait a bit more, then fade out at 3.2s
+        // - Fade out duration: 0.8s
+        // - Total: ~4s
+        
+        setTimeout(function() {
+            introOverlay.classList.add('fade-out');
+            
+            // Remove from DOM after fade completes
+            setTimeout(function() {
+                introOverlay.classList.add('hidden');
+            }, 800);
+        }, 3200);
+    }
+    
+    // ============================================
     // Header Scroll Effect
     // ============================================
     const header = document.getElementById('header');
