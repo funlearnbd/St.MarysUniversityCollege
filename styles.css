@@ -20,6 +20,20 @@
     z-index: 99999;
     opacity: 1;
     transition: opacity 0.8s ease-out;
+    animation: introFadeOut 4s ease-out forwards;
+    cursor: pointer;
+}
+
+@keyframes introFadeOut {
+    0%, 75% {
+        opacity: 1;
+        visibility: visible;
+    }
+    100% {
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+    }
 }
 
 .intro-overlay.fade-out {
@@ -28,7 +42,9 @@
 }
 
 .intro-overlay.hidden {
-    display: none;
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
 }
 
 .intro-logo {
@@ -648,6 +664,10 @@ p {
     gap: var(--spacing-lg);
 }
 
+.programs-grid.four-col {
+    grid-template-columns: repeat(4, 1fr);
+}
+
 .program-card {
     background: var(--white);
     padding: var(--spacing-xl);
@@ -655,6 +675,37 @@ p {
     transition: all var(--transition-normal);
     position: relative;
     overflow: hidden;
+}
+
+.program-card.new-program {
+    border: 2px solid var(--primary-blue);
+    background: linear-gradient(135deg, rgba(40, 86, 163, 0.05) 0%, var(--white) 100%);
+}
+
+.new-badge {
+    position: absolute;
+    top: -10px;
+    right: 15px;
+    background: var(--primary-blue);
+    color: var(--white);
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    z-index: 10;
+}
+
+.new-badge-inline {
+    display: inline-block;
+    background: var(--primary-blue);
+    color: var(--white);
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    margin-left: 10px;
 }
 
 .program-card::before {
@@ -948,7 +999,43 @@ p {
     margin-top: 2px;
 }
 
+.footer-partners {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding: var(--spacing-lg) 0;
+    margin-top: var(--spacing-lg);
+    text-align: center;
+}
+
+.partners-label {
+    font-size: 0.875rem;
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: var(--spacing-md);
+}
+
+.footer-partner-logos {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: var(--spacing-xl);
+    flex-wrap: wrap;
+}
+
+.footer-partner-logos img {
+    height: 60px;
+    width: auto;
+    max-width: 120px;
+    object-fit: contain;
+    filter: brightness(0) invert(1);
+    opacity: 0.85;
+    transition: opacity var(--transition-fast);
+}
+
+.footer-partner-logos img:hover {
+    opacity: 1;
+}
+
 .footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
     padding-top: var(--spacing-lg);
     text-align: center;
 }
@@ -1144,6 +1231,405 @@ p {
 }
 
 /* ============================================
+   PARTNERS SECTION
+   ============================================ */
+.partners {
+    background: var(--white);
+}
+
+.partners-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--spacing-lg);
+    margin-bottom: var(--spacing-xl);
+}
+
+.partner-card {
+    text-align: center;
+    padding: var(--spacing-lg);
+    background: var(--light-blue);
+    border-radius: var(--radius-lg);
+}
+
+.partner-logo {
+    width: 120px;
+    height: 120px;
+    background: var(--white);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto var(--spacing-md);
+    padding: 15px;
+    box-shadow: var(--shadow-sm);
+    overflow: hidden;
+}
+
+.partner-logo img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+.partner-logo-placeholder {
+    width: 80px;
+    height: 80px;
+    background: var(--white);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto var(--spacing-md);
+    font-weight: 700;
+    color: var(--primary-blue);
+    font-size: 1.25rem;
+    box-shadow: var(--shadow-sm);
+}
+
+.partner-card h4 {
+    color: var(--charcoal);
+    margin-bottom: var(--spacing-xs);
+}
+
+.partner-card p {
+    font-size: 0.875rem;
+    color: var(--dark-gray);
+    margin: 0;
+}
+
+.partners-list {
+    background: var(--light-gray);
+    padding: var(--spacing-md);
+    border-radius: var(--radius-md);
+    margin-bottom: var(--spacing-md);
+}
+
+.partners-list h4 {
+    color: var(--primary-blue);
+    margin-bottom: var(--spacing-xs);
+    font-size: 0.9375rem;
+}
+
+.partners-list p {
+    margin: 0;
+    font-size: 0.875rem;
+    color: var(--dark-gray);
+    line-height: 1.8;
+}
+
+/* ============================================
+   TIMELINE
+   ============================================ */
+.timeline {
+    position: relative;
+    padding-left: var(--spacing-xl);
+    margin-top: var(--spacing-xl);
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    background: var(--primary-blue);
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: var(--spacing-lg);
+    padding-bottom: var(--spacing-lg);
+    border-bottom: 1px solid var(--light-gray);
+}
+
+.timeline-item:last-child {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: none;
+}
+
+.timeline-year {
+    position: absolute;
+    left: calc(-1 * var(--spacing-xl) - 30px);
+    width: 60px;
+    background: var(--primary-blue);
+    color: var(--white);
+    padding: var(--spacing-xs);
+    border-radius: var(--radius-sm);
+    font-weight: 700;
+    font-size: 0.875rem;
+    text-align: center;
+}
+
+.timeline-content h4 {
+    color: var(--charcoal);
+    margin-bottom: var(--spacing-xs);
+}
+
+.timeline-content p {
+    margin: 0;
+    font-size: 0.9375rem;
+    color: var(--dark-gray);
+}
+
+/* ============================================
+   SCHOOL SECTIONS (Academics Page)
+   ============================================ */
+.school-section {
+    padding: var(--spacing-xxl) 0;
+}
+
+.school-header {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-xl);
+}
+
+.school-icon {
+    width: 70px;
+    height: 70px;
+    background: var(--primary-blue);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    flex-shrink: 0;
+}
+
+.school-title h2 {
+    margin-bottom: var(--spacing-xs);
+}
+
+.school-established {
+    color: var(--dark-gray);
+    font-size: 0.9375rem;
+}
+
+.school-description {
+    margin-bottom: var(--spacing-xl);
+}
+
+.school-description p {
+    margin-bottom: var(--spacing-md);
+}
+
+.departments-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-xl);
+}
+
+.department-card {
+    background: var(--white);
+    padding: var(--spacing-lg);
+    border: 1px solid var(--medium-gray);
+    border-radius: var(--radius-md);
+}
+
+.department-card.featured {
+    border-color: var(--primary-blue);
+    background: linear-gradient(135deg, var(--light-blue) 0%, var(--white) 100%);
+}
+
+.department-card h4 {
+    color: var(--charcoal);
+    margin-bottom: var(--spacing-sm);
+}
+
+.department-card p {
+    font-size: 0.9375rem;
+    color: var(--dark-gray);
+    margin-bottom: var(--spacing-sm);
+}
+
+.dept-badge {
+    display: inline-block;
+    background: var(--primary-blue);
+    color: var(--white);
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    margin-right: var(--spacing-xs);
+}
+
+.duration-badge {
+    display: inline-block;
+    background: var(--dark-gray);
+    color: var(--white);
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+
+.school-stats {
+    display: flex;
+    gap: var(--spacing-lg);
+    margin-bottom: var(--spacing-xl);
+    flex-wrap: wrap;
+}
+
+.school-stat {
+    text-align: center;
+    padding: var(--spacing-md);
+    background: var(--light-blue);
+    border-radius: var(--radius-md);
+    min-width: 120px;
+}
+
+.school-stat .stat-number {
+    display: block;
+    font-family: var(--font-heading);
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--primary-blue);
+}
+
+.school-stat .stat-label {
+    font-size: 0.8125rem;
+    color: var(--dark-gray);
+}
+
+.clinical-partners {
+    background: var(--light-gray);
+    padding: var(--spacing-md);
+    border-radius: var(--radius-md);
+    margin-bottom: var(--spacing-md);
+}
+
+.clinical-partners h4 {
+    color: var(--primary-blue);
+    margin-bottom: var(--spacing-sm);
+    font-size: 0.9375rem;
+}
+
+.partners-list-inline {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-sm);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.partners-list-inline li {
+    background: var(--white);
+    padding: var(--spacing-xs) var(--spacing-sm);
+    border-radius: var(--radius-sm);
+    font-size: 0.875rem;
+    color: var(--dark-gray);
+}
+
+.highlight-box {
+    background: linear-gradient(135deg, var(--light-blue) 0%, var(--white) 100%);
+    padding: var(--spacing-lg);
+    border-radius: var(--radius-lg);
+    border-left: 4px solid var(--primary-blue);
+}
+
+.highlight-box h4 {
+    color: var(--primary-blue);
+    margin-bottom: var(--spacing-sm);
+}
+
+.cta-box {
+    background: var(--primary-blue);
+    color: var(--white);
+    padding: var(--spacing-lg);
+    border-radius: var(--radius-lg);
+    text-align: center;
+}
+
+.cta-box h4 {
+    color: var(--white);
+    margin-bottom: var(--spacing-md);
+}
+
+.grad-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: var(--spacing-md) 0;
+    background: var(--white);
+}
+
+.grad-table th,
+.grad-table td {
+    padding: var(--spacing-sm);
+    text-align: left;
+    border: 1px solid var(--medium-gray);
+}
+
+.grad-table th {
+    background: var(--primary-blue);
+    color: var(--white);
+    font-weight: 600;
+}
+
+.grad-table tr:nth-child(even) td {
+    background: var(--light-gray);
+}
+
+.schools-nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-sm);
+    justify-content: center;
+}
+
+.school-nav-item {
+    padding: var(--spacing-sm) var(--spacing-md);
+    background: var(--light-blue);
+    color: var(--primary-blue);
+    border-radius: var(--radius-md);
+    font-weight: 600;
+    transition: all var(--transition-fast);
+}
+
+.school-nav-item:hover {
+    background: var(--primary-blue);
+    color: var(--white);
+}
+
+.school-nav-item.new {
+    background: var(--primary-blue);
+    color: var(--white);
+}
+
+/* Graduate Stats Sidebar */
+.grad-stats {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+}
+
+.grad-stat {
+    padding-bottom: var(--spacing-sm);
+    border-bottom: 1px solid var(--medium-gray);
+}
+
+.grad-stat:last-child {
+    border-bottom: none;
+}
+
+.grad-stat .stat-num {
+    display: block;
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--primary-blue);
+}
+
+.grad-stat .stat-desc {
+    font-size: 0.8125rem;
+    color: var(--dark-gray);
+}
+
+/* ============================================
    RESPONSIVE DESIGN
    ============================================ */
 @media (max-width: 1024px) {
@@ -1227,6 +1713,33 @@ p {
         grid-template-columns: 1fr;
     }
     
+    .programs-grid.four-col {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .partners-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .departments-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .school-stats {
+        justify-content: center;
+    }
+    
+    .timeline {
+        padding-left: var(--spacing-lg);
+    }
+    
+    .timeline-year {
+        position: relative;
+        left: 0;
+        margin-bottom: var(--spacing-sm);
+        display: inline-block;
+    }
+    
     .welcome-stats {
         grid-template-columns: 1fr;
     }
@@ -1276,5 +1789,23 @@ p {
     .btn {
         width: 100%;
         text-align: center;
+    }
+    
+    .programs-grid.four-col {
+        grid-template-columns: 1fr;
+    }
+    
+    .school-header {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .school-stats {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .school-stat {
+        width: 100%;
     }
 }

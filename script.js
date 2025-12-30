@@ -11,22 +11,35 @@ document.addEventListener('DOMContentLoaded', function() {
     const introOverlay = document.getElementById('introOverlay');
     
     if (introOverlay) {
-        // Total animation duration: 
-        // - Logo pulse: 2s
-        // - Title fade in: starts at 1s
-        // - Subtitle fade in: starts at 1.5s
-        // - Wait a bit more, then fade out at 3.2s
-        // - Fade out duration: 0.8s
-        // - Total: ~4s
-        
+        // Fade out after animation completes
         setTimeout(function() {
             introOverlay.classList.add('fade-out');
             
             // Remove from DOM after fade completes
             setTimeout(function() {
+                introOverlay.style.display = 'none';
                 introOverlay.classList.add('hidden');
             }, 800);
         }, 3200);
+        
+        // Fallback: If still visible after 5 seconds, force hide
+        setTimeout(function() {
+            if (introOverlay && !introOverlay.classList.contains('hidden')) {
+                introOverlay.style.display = 'none';
+                introOverlay.classList.add('hidden');
+            }
+        }, 5000);
+    }
+    
+    // Also allow clicking to skip intro
+    if (introOverlay) {
+        introOverlay.addEventListener('click', function() {
+            introOverlay.classList.add('fade-out');
+            setTimeout(function() {
+                introOverlay.style.display = 'none';
+                introOverlay.classList.add('hidden');
+            }, 300);
+        });
     }
     
     // ============================================
